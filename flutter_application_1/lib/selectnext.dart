@@ -36,7 +36,7 @@ class _SelectNextState extends State<SelectNext> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 233, 13, 167),
-          title: const Text('4'),
+          title: const Text('トーク'),
         ),
         body: Stack(
           children: [

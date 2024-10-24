@@ -7,7 +7,7 @@ class Select extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: const Text('セカンド'),
+        title: const Text('グループ選択'),
       ),
       body: Stack(
         children: [

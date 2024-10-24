@@ -34,7 +34,7 @@ class _GroupMakeState extends State<GroupMake> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 54, 244, 165),
-          title: const Text('3'),
+          title: const Text('グループ作成'),
         ),
         body: Column(
           children: [

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/groupmake.dart';
 import 'package:flutter_application_1/select.dart'; // グループ作成用のページをインポート
 
-class homePage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.blue, title: const Text('ファースト')),
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Center(child: const Text('Kyoai Ring')), // タイトルを中央に配置
+      ),
       body: Stack(
         children: [
           // 1つ目のボタン
@@ -20,7 +23,8 @@ class homePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Select()), // グループ選択画面へ遷移
+                      builder: (context) => Select(), // グループ選択画面へ遷移
+                    ),
                   );
                 },
                 child: Text('グループ選択'),
@@ -38,7 +42,8 @@ class homePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => GroupMake()), // グループ作成画面へ遷移
+                      builder: (context) => GroupMake(), // グループ作成画面へ遷移
+                    ),
                   );
                 },
                 child: Text('グループ作成'),
