@@ -1,0 +1,36 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "kyoai-ring",
+          "appId": "1:481237379007:android:189dd4f52c99bdbabfa30a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "kyoai-ring",
+          "configurations": {
+            "android": "1:481237379007:android:189dd4f52c99bdbabfa30a",
+            "ios": "1:481237379007:ios:6b97e344e6b458a3bfa30a",
+            "macos": "1:481237379007:ios:6b97e344e6b458a3bfa30a",
+            "web": "1:481237379007:web:5e8443d7a139cd48bfa30a",
+            "windows": "1:481237379007:web:d0124f20bc65523cbfa30a"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "asia-east1"
+    }
+  }
+}
