@@ -3,7 +3,7 @@
     "project_number": "481237379007",
     "firebase_url": "https://kyoai-ring-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "kyoai-ring",
-    "storage_bucket": "kyoai-ring.appspot.com"
+    "storage_bucket": "kyoai-ring.firebasestorage.app"
   },
   "client": [
     {

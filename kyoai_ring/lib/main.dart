@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'homepage.dart';
+import 'GUI/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'firebase_options.dart';
+import 'fb_link/firebase_options.dart';
 
 FirebaseDatabase database = FirebaseDatabase.instance;
 
