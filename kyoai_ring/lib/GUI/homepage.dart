@@ -10,11 +10,10 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Center(child: Text('Kyoai Ring')), // タイトルを中央に配置
+        title: const Center(child: Text('Kyoai Ring')),
       ),
       body: Stack(
         children: [
-          // 1つ目のボタン
           Align(
             alignment: Alignment(0.0, -0.3), // 真ん中より少し上に配置
             child: SizedBox(
@@ -25,7 +24,7 @@ class Homepage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Select(), // グループ選択画面へ遷移
+                      builder: (context) => const Select(),
                     ),
                   );
                 },

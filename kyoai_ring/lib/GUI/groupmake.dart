@@ -15,14 +15,13 @@ class GroupMakeState extends State<GroupMake> {
   void createGroup() {
     if (_groupNameController.text.isNotEmpty){
       _database.child('groups').push().set({
-        'name':
-        _groupNameController.text,
-        'createdAt':
-        DateTime.now().millisecondsSinceEpoch,
+        'name': _groupNameController.text,
+        'createdAt': DateTime.now().millisecondsSinceEpoch,
       });
       _groupNameController.clear();
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,11 +60,8 @@ class GroupListScreen extends StatefulWidget {
 }
 
 class GroupListScreenState extends State<GroupListScreen> {
-  final TextEditingController _groupNameController = TextEditingController();
   final DatabaseReference _database = FirebaseDatabase.instance.ref();
   List<String> _groupNames = [];
-
-  get createGroup => null;
 
   @override
   void initState() {
@@ -74,8 +70,7 @@ class GroupListScreenState extends State<GroupListScreen> {
   }
 
   void _fetchGroups() {
-    // "groups" ノードからデータを取得
-    _database.child('groups').once().then((DatabaseEvent event) {
+    _database.child('groups').onValue.listen((DatabaseEvent event) {
       final data = event.snapshot.value as Map?;
       if (data != null) {
         List<String> groups = [];
@@ -86,8 +81,10 @@ class GroupListScreenState extends State<GroupListScreen> {
         setState(() {
           _groupNames = groups;
         });
+      } else {
+        print("データが存在しません");
       }
-    }).catchError((error) {
+    }).onError((error) {
       print('データ取得エラー: $error');
     });
   }
@@ -111,26 +108,30 @@ class GroupListScreenState extends State<GroupListScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  TextField(
-                    controller: _groupNameController,
-                    decoration: const InputDecoration(
+                  // グループ名入力欄（グループ作成用）
+                  const TextField(
+                    decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'グループ名を入力',
                     ),
                   ),
                   const SizedBox(height: 16.0),
                   ElevatedButton(
-                    onPressed: createGroup,
+                    onPressed: () {
+                      // グループ追加ボタンの処理
+                    },
                     child: const Text('追加'),
                   ),
-
-                  ListView.builder(
+                  // グループリスト表示部分
+                  Expanded(  // ListView.builderをExpandedでラップ
+                    child: ListView.builder(
                       itemCount: _groupNames.length,
                       itemBuilder: (context, index) {
                         return ListTile(
                           title: Text(_groupNames[index]),
                         );
-                      }
+                      },
+                    ),
                   ),
                 ],
               ),
