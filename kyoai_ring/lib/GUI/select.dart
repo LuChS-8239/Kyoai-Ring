@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:kyoai_ring/GUI/selectnext.dart'; // SelectNextページをインポート
+
+import 'chat_screen.dart';
 
 class Select extends StatefulWidget {
   const Select({super.key});
@@ -51,6 +52,15 @@ class SelectState extends State<Select> {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(_groupNames[index]),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatScreen(groupName: _groupNames[index]),
+                ),
+              );
+            },
+
           );
         },
       ),

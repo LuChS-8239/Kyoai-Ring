@@ -17,6 +17,7 @@ class GroupMakeState extends State<GroupMake> {
       _database.child('groups').push().set({
         'name': _groupNameController.text,
         'createdAt': DateTime.now().millisecondsSinceEpoch,
+        'timestamp': DateTime.now().millisecondsSinceEpoch,
       });
       _groupNameController.clear();
     }
@@ -89,6 +90,15 @@ class GroupListScreenState extends State<GroupListScreen> {
     });
   }
 
+  String sanitizeGroupName(String groupName) {
+    return groupName
+        .replaceAll('.', '_')
+        .replaceAll('#', '_')
+        .replaceAll('\$', '_')
+        .replaceAll('[', '_')
+        .replaceAll(']', '_');
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -108,7 +118,6 @@ class GroupListScreenState extends State<GroupListScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  // グループ名入力欄（グループ作成用）
                   const TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
