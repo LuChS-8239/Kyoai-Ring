@@ -15,11 +15,22 @@ class LoginScreen extends StatelessWidget {
           icon: const Icon(Icons.login),
           label: const Text('Googleでログイン'),
           onPressed: () async {
+            // Google認証を実行
             final user = await _authService.signInWithGoogle();
             if (user != null) {
-              Navigator.pushReplacementNamed(context, '/homepage'); // ホーム画面へ遷移
+              // メールアドレスのドメインを確認
+              final email = user.email ?? '';
+              if (email.endsWith('@c.kyoai.ac.jp')) {
+                // ドメインが一致すればホーム画面へ遷移
+                Navigator.pushReplacementNamed(context, '/homepage');
+              } else {
+                // ドメインが一致しない場合、エラーメッセージを表示
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('このメールアドレスではログインできません。')),
+                );
+              }
             } else {
-              // エラー通知 (例: SnackBar)
+              // ログイン失敗の場合
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('ログインに失敗しました。')),
               );

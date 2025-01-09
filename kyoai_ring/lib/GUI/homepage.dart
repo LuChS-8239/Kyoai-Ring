@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kyoai_ring/GUI/groupmake.dart';
 import 'package:kyoai_ring/GUI/select.dart';
+import 'user_icons.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -8,10 +9,7 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Center(child: Text('Kyoai Ring')),
-      ),
+      appBar: CustomAppBar(title: 'Kyoai-Ring'),
       body: Stack(
         children: [
           Align(

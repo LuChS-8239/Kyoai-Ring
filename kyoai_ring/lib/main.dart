@@ -23,11 +23,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // 初期ルートをログイン画面に設定
       initialRoute: '/',
       routes: {
         '/': (context) =>  LoginScreen(),
-        '/homepage': (context) => const Homepage(), // ログイン成功時に遷移
+        '/homepage': (context) => const Homepage(),
       },
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-
+import 'user_icons.dart';
 import 'chat_screen.dart';
 
 class Select extends StatefulWidget {
@@ -44,9 +44,7 @@ class SelectState extends State<Select> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('作成されたグループ'),
-      ),
+      appBar: CustomAppBar(title: '作成されたグループ'),
       body: ListView.builder(
         itemCount: _groupNames.length,
         itemBuilder: (context, index) {
