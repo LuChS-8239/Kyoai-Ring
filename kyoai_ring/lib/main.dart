@@ -5,13 +5,12 @@ import 'package:kyoai_ring/Structure/login.dart'; // ログイン画面
 import 'package:firebase_core/firebase_core.dart';
 import 'Structure/firebase_options.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) =>  LoginScreen(),
+        '/': (context) => LoginScreen(),
         '/homepage': (context) => const Homepage(),
       },
     );
